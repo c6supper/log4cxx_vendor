@@ -1,0 +1,44 @@
+# Log4cxx_FOUND
+# Log4cxx_INCLUDE_DIRS
+# Log4cxx_LIBRARIES
+
+FIND_PATH(Log4cxx_INCLUDE_DIR log4cxx.h
+  ${CMAKE_INSTALL_PREFIX}/include/log4cxx
+)
+
+SET(Log4cxx_NAMES ${Log4cxx_NAMES} log4cxx)
+FIND_LIBRARY(Log4cxx_LIBRARY
+  NAMES ${Log4cxx_NAMES}
+  HINTS
+  ${CMAKE_INSTALL_PREFIX}/lib
+  PATHS
+  ${CMAKE_INSTALL_PREFIX}/lib
+  )
+
+IF (Log4cxx_LIBRARY AND Log4cxx_INCLUDE_DIR)
+    SET(Log4cxx_LIBRARIES ${Log4cxx_LIBRARY})
+    SET(Log4cxx_FOUND "YES")
+ELSE (Log4cxx_LIBRARY AND Log4cxx_INCLUDE_DIR)
+  SET(Log4cxx_FOUND "NO")
+ENDIF (Log4cxx_LIBRARY AND Log4cxx_INCLUDE_DIR)
+
+IF (Log4cxx_FOUND)
+   IF (NOT Log4cxx_FIND_QUIETLY)
+      MESSAGE(STATUS "Found Log4cxx headers: ${Log4cxx_INCLUDE_DIR}")
+      MESSAGE(STATUS "Found Log4cxx library: ${Log4cxx_LIBRARIES}")
+   ENDIF (NOT Log4cxx_FIND_QUIETLY)
+ELSE (Log4cxx_FOUND)
+   IF (Log4cxx_FIND_REQUIRED)
+      MESSAGE(FATAL_ERROR "Could not find Log4cxx library")
+   ENDIF (Log4cxx_FIND_REQUIRED)
+ENDIF (Log4cxx_FOUND)
+
+# Deprecated declarations.
+SET (NATIVE_Log4cxx_INCLUDE_PATH ${Log4cxx_INCLUDE_DIR} )
+GET_FILENAME_COMPONENT (NATIVE_Log4cxx_LIB_PATH ${Log4cxx_LIBRARY} PATH)
+
+MARK_AS_ADVANCED(
+  Log4cxx_LIBRARY
+  Log4cxx_INCLUDE_DIR
+  Log4cxx_CONFIG
+  )

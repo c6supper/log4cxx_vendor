@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<?xml-model
+  href="http://download.ros.org/schema/package_format2.xsd"
+  schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="2">
+  <name>log4cxx_vendor</name>
+  <version>0.11.0</version>
+  <description>
+    Wrapper around log4cxx, it provides a fixed CMake module and an ExternalProject build of it.
+  </description>
+  <maintainer email="asobhy@blackberry.com">Ahmed Sobhy</maintainer>
+  <license>Apache License 2.0</license>  <!-- the contents of this package are Apache 2.0 -->
+  <license>Apache License 2.0</license>  <!-- log4cxx is MIT -->
+  <url type="website">https://logging.apache.org/log4cxx/latest_stable/</url>
+  <buildtool_depend>ament_cmake</buildtool_depend>
+  <build_depend>apr_vendor</build_depend>
+  <build_depend>apr_util_vendor</build_depend>
+  <export>
+    <build_type>ament_cmake</build_type>
+  </export>
+</package>
